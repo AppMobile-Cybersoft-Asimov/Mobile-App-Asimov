@@ -3,8 +3,13 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/GitHub/Mobile-App-Asimov/app/src/main/res/layout/activity_main.xml" value="0.358695652173913" />
+        <entry key="..\:/GitHub/Mobile-App-Asimov/app/src/main/res/layout/content_login.xml" value="0.358695652173913" />
+        <entry key="..\:/GitHub/Mobile-App-Asimov/app/src/main/res/layout/fragment_login.xml" value="0.358695652173913" />
         <entry key="..\:/Projects/Android/Mobile-App-Asimov/app/src/main/res/drawable/box_input.xml" value="0.188" />
         <entry key="..\:/Projects/Android/Mobile-App-Asimov/app/src/main/res/layout/activity_announcements.xml" value="0.33" />
+        <entry key="..\:/Projects/Android/Mobile-App-Asimov/app/src/main/res/layout/activity_dashboard_director.xml" value="0.18796296296296297" />
+        <entry key="..\:/Projects/Android/Mobile-App-Asimov/app/src/main/res/layout/activity_dashboard_teacher.xml" value="0.18796296296296297" />
         <entry key="..\:/Projects/Android/Mobile-App-Asimov/app/src/main/res/layout/activity_main.xml" value="0.24583333333333332" />
         <entry key="..\:/Projects/Android/Mobile-App-Asimov/app/src/main/res/layout/card_announcement.xml" value="0.35353535353535354" />
         <entry key="..\:/Projects/Android/Mobile-App-Asimov/app/src/main/res/layout/card_publish_announcements.xml" value="0.25" />
@@ -15,6 +20,30 @@
         <entry key="..\:/upc_pry/ciclo09/apl_mov/Mobile-App-Asimov/app/src/main/res/drawable/teacher_box.xml" value="0.248" />
         <entry key="..\:/upc_pry/ciclo09/apl_mov/Mobile-App-Asimov/app/src/main/res/layout/activity_main.xml" value="0.3333333333333333" />
         <entry key="..\:/upc_pry/ciclo09/apl_mov/Mobile-App-Asimov/app/src/main/res/layout/activity_teacher_profile.xml" value="0.33" />
+        <entry key="..\:/Projects/Android/Mobile-App-Asimov/app/src/main/res/layout/dashboard_d_card_features.xml" value="0.36666666666666664" />
+        <entry key="..\:/Projects/Android/Mobile-App-Asimov/app/src/main/res/layout/dashboard_t_card_features.xml" value="0.1" />
+        <entry key="..\:/Projects/Android/Mobile-App-Asimov/app/src/main/res/layout/dashboard_t_card_syp.xml" value="0.36666666666666664" />
+        <entry key="..\:/Projects/Android/Mobile-App-Asimov/app/src/main/res/layout/sidemenu_director_header.xml" value="0.36666666666666664" />
+        <entry key="..\:/Projects/Android/Mobile-App-Asimov/app/src/main/res/menu/sidemenu_director_content.xml" value="0.36102564102564105" />
+        <entry key="..\:/Users/johan/Documents/GitHub/Mobile-App-Asimov/app/src/main/res/drawable/box_input.xml" value="0.187" />
+        <entry key="..\:/Users/johan/Documents/GitHub/Mobile-App-Asimov/app/src/main/res/layout/activity_announcements.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/johan/Documents/GitHub/Mobile-App-Asimov/app/src/main/res/layout/activity_cyx.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/johan/Documents/GitHub/Mobile-App-Asimov/app/src/main/res/layout/activity_dashboard_director.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/johan/Documents/GitHub/Mobile-App-Asimov/app/src/main/res/layout/activity_dashboard_teacher.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/johan/Documents/GitHub/Mobile-App-Asimov/app/src/main/res/layout/activity_main.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/johan/Documents/GitHub/Mobile-App-Asimov/app/src/main/res/layout/card_announcement.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/johan/Documents/GitHub/Mobile-App-Asimov/app/src/main/res/layout/card_dashboard_teacher.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/johan/Documents/GitHub/Mobile-App-Asimov/app/src/main/res/layout/card_features_dashboard.xml" value="0.24010416666666667" />
+        <entry key="..\:/Users/johan/Documents/GitHub/Mobile-App-Asimov/app/src/main/res/layout/card_profile_dashboard_t.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/johan/Documents/GitHub/Mobile-App-Asimov/app/src/main/res/layout/card_publish_announcements.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/johan/Documents/GitHub/Mobile-App-Asimov/app/src/main/res/layout/dashboardT_card_features.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/johan/Documents/GitHub/Mobile-App-Asimov/app/src/main/res/layout/dashboardT_card_points.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/johan/Documents/GitHub/Mobile-App-Asimov/app/src/main/res/layout/dashboardT_card_syp.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/johan/Documents/GitHub/Mobile-App-Asimov/app/src/main/res/layout/dashboard_d_card_features.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/johan/Documents/GitHub/Mobile-App-Asimov/app/src/main/res/layout/dashboard_t_card_features.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/johan/Documents/GitHub/Mobile-App-Asimov/app/src/main/res/layout/dashboard_t_card_points.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/johan/Documents/GitHub/Mobile-App-Asimov/app/src/main/res/layout/dashboard_t_card_syp.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/johan/Documents/GitHub/Mobile-App-Asimov/app/src/main/res/layout/dashboard_teacher_card_syp.xml" value="0.25416666666666665" />
       </map>
     </option>
   </component>

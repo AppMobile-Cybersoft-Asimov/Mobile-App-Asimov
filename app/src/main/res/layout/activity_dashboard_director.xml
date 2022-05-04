@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#F3F3F6"
+    android:orientation="vertical"
+    android:paddingHorizontal="32dp"
+    tools:context=".DashboardTeacherActivity">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp"
+        android:fontFamily="sans-serif-medium"
+        android:text="Dashboard Director"
+        android:textAlignment="textStart"
+        android:layout_marginTop="15dp"
+        android:textSize="25sp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp"
+        android:fontFamily="sans-serif-medium"
+        android:text="Features"
+        android:textAlignment="textStart"
+        android:layout_marginTop="10dp"
+        android:textSize="20sp" />
+
+    <include
+        layout="@layout/dashboard_d_card_features"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp"
+        android:fontFamily="sans-serif-medium"
+        android:text="School year progress"
+        android:textAlignment="textStart"
+        android:layout_marginTop="13dp"
+        android:textSize="20sp" />
+
+    <include
+        layout="@layout/dashboard_t_card_syp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp"
+        android:fontFamily="sans-serif-medium"
+        android:text="Last announcements"
+        android:textAlignment="textStart"
+        android:layout_marginTop="13dp"
+        android:textSize="20sp" />
+
+    <include
+        layout="@layout/card_announcement"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <include
+        layout="@layout/card_announcement"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"/>
+
+    <TextView
+        android:id="@+id/viewMoreAnnouncements"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textAlignment="textEnd"
+        android:text="View more"
+        android:layout_marginTop="5dp"/>
+
+</LinearLayout>

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="navigation_view">
+
+    <group android:checkableBehavior="single">
+        <item android:id="@+id/nav_dashboard"
+            android:icon="@drawable/ico_dashboard"
+            android:title="Dashboard Director"/>
+        <item android:id="@+id/nav_dashboardTeacher"
+            android:icon="@drawable/ico_dashboard"
+            android:title="Dashboard Teacher"/>
+        <item android:id="@+id/nav_announcements"
+            android:icon="@drawable/ico_announcements"
+            android:title="Announcements"/>
+        <item android:id="@+id/nav_teachers"
+            android:icon="@drawable/ico_group"
+            android:title="Teachers"/>
+        <item android:id="@+id/nav_competences"
+            android:icon="@drawable/ico_competences"
+            android:title="Competences"/>
+    </group>
+</menu>
