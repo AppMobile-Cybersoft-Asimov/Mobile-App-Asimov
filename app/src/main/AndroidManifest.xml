@@ -10,6 +10,15 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Asimov">
         <activity
+            android:name=".AnnouncementsActivity"
+            android:exported="false" />
+        <activity
+            android:name=".frag_announcements"
+            android:exported="false" />
+        <activity
+            android:name=".frag_dashboard"
+            android:exported="false" />
+        <activity
             android:name=".MainActivity"
             android:exported="true">
             <intent-filter>
