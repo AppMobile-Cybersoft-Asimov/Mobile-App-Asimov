@@ -52,7 +52,10 @@ import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 
 import android.content.ClipData;
+import android.content.Context;
+import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.view.Gravity;
 import android.view.MenuItem;
 import android.view.View;
@@ -66,45 +69,46 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     Toolbar toolbar;
     DrawerLayout drawerLayout;
     NavigationView sideMenu;
+    String userType;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
         toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-
+        userType = getIntent().getStringExtra("userType");
         drawerLayout = findViewById(R.id.drawerLayout);
         sideMenu = findViewById(R.id.side_menu);
         sideMenu.setNavigationItemSelectedListener(this);
-
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
                 this, drawerLayout, toolbar, R.string.sidemenu_open, R.string.sidemenu_close);
-
         drawerLayout.addDrawerListener(toggle);
         toggle.syncState();
-
-        if (savedInstanceState == null){
+        if (savedInstanceState == null) {
             sideMenu.setCheckedItem(R.id.nav_dashboard);
         }
-
+        if (userType.equals("docente")) {
+            getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new DashboardTeacherActivity()).commit();
+        } else {
+            getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new DashboardDirectorActivity()).commit();
+        }
     }
 
     @Override
-    public void onBackPressed(){
-        if (drawerLayout.isDrawerOpen(GravityCompat.START)){
+    public void onBackPressed() {
+        if (drawerLayout.isDrawerOpen(GravityCompat.START)) {
             drawerLayout.closeDrawer(GravityCompat.START);
 
-        }else{
+        } else {
             super.onBackPressed();
         }
     }
 
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-        switch (item.getItemId()){
+        switch (item.getItemId()) {
             case R.id.nav_dashboard:
                 getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new DashboardDirectorActivity()).commit();
                 break;

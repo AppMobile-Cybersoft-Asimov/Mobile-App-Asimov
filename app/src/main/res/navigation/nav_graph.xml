@@ -8,7 +8,7 @@
     <fragment
         android:id="@+id/LoginFragment"
         android:name="com.example.asimov.ui.login.fragments.LoginFragment"
-        android:label="login_fragment_label"
+        android:label="Asimov"
         tools:layout="@layout/fragment_login">
 
         <action

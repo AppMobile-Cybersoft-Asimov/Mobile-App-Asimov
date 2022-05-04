@@ -7,7 +7,7 @@
     <group android:checkableBehavior="single">
         <item android:id="@+id/nav_dashboard"
             android:icon="@drawable/ico_dashboard"
-            android:title="Dashboard"/>
+            android:title="Dashboard Director"/>
         <item android:id="@+id/nav_dashboardTeacher"
             android:icon="@drawable/ico_dashboard"
             android:title="Dashboard Teacher"/>
