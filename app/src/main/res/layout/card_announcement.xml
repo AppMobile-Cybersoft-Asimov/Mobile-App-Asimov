@@ -37,7 +37,7 @@
                 style="?attr/materialButtonOutlinedStyle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="130dp"
+                android:layout_marginStart="120dp"
                 android:text="Eliminar"
                 android:textColor="#858585"
                 android:textSize="12sp" />
