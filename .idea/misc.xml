@@ -11,6 +11,7 @@
         <entry key="..\:/Users/johan/Documents/GitHub/Mobile-App-Asimov/app/src/main/res/drawable/box_input.xml" value="0.187" />
         <entry key="..\:/Users/johan/Documents/GitHub/Mobile-App-Asimov/app/src/main/res/layout/activity_announcements.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/johan/Documents/GitHub/Mobile-App-Asimov/app/src/main/res/layout/activity_cyx.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/johan/Documents/GitHub/Mobile-App-Asimov/app/src/main/res/layout/activity_dashboard_director.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/johan/Documents/GitHub/Mobile-App-Asimov/app/src/main/res/layout/activity_dashboard_teacher.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/johan/Documents/GitHub/Mobile-App-Asimov/app/src/main/res/layout/activity_main.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/johan/Documents/GitHub/Mobile-App-Asimov/app/src/main/res/layout/card_announcement.xml" value="0.25416666666666665" />
@@ -21,6 +22,8 @@
         <entry key="..\:/Users/johan/Documents/GitHub/Mobile-App-Asimov/app/src/main/res/layout/dashboardT_card_features.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/johan/Documents/GitHub/Mobile-App-Asimov/app/src/main/res/layout/dashboardT_card_points.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/johan/Documents/GitHub/Mobile-App-Asimov/app/src/main/res/layout/dashboardT_card_syp.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/johan/Documents/GitHub/Mobile-App-Asimov/app/src/main/res/layout/dashboard_d_card_features.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/johan/Documents/GitHub/Mobile-App-Asimov/app/src/main/res/layout/dashboard_t_card_features.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/johan/Documents/GitHub/Mobile-App-Asimov/app/src/main/res/layout/dashboard_t_card_points.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/johan/Documents/GitHub/Mobile-App-Asimov/app/src/main/res/layout/dashboard_t_card_syp.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/johan/Documents/GitHub/Mobile-App-Asimov/app/src/main/res/layout/dashboard_teacher_card_syp.xml" value="0.25416666666666665" />
