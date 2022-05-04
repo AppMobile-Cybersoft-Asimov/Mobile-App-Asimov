@@ -71,7 +71,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     NavigationView sideMenu;
     String userType;
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -119,7 +118,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new AnnouncementsActivity()).commit();
                 break;
             case R.id.nav_teachers:
-                getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new frag_dashboard()).commit();
+                getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new TeacherProfile()).commit();
                 break;
             case R.id.nav_competences:
                 getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new frag_announcements()).commit();
