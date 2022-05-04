@@ -1,5 +1,6 @@
 package com.example.asimov;
 
+import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
@@ -20,14 +21,12 @@ public class AnnouncementsActivity extends Fragment {
     private ActivityAnnouncementsBinding binding;
 
     @Override
-    public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState){
+    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         binding = ActivityAnnouncementsBinding.inflate(getLayoutInflater());
         binding.recyclerData.setLayoutManager(new LinearLayoutManager(
                 getContext(), LinearLayoutManager.VERTICAL, false));
-
         getAnnouncements();
-
         return binding.getRoot();
     }
 

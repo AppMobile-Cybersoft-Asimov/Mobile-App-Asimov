@@ -1,14 +1,25 @@
 package com.example.asimov;
 
-import androidx.appcompat.app.AppCompatActivity;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.fragment.app.Fragment;
 
 import android.os.Bundle;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
 
-public class DashboardDirectorActivity extends AppCompatActivity {
+import com.example.asimov.databinding.ActivityDashboardDirectorBinding;
+
+public class DashboardDirectorActivity extends Fragment {
+
+    private ActivityDashboardDirectorBinding binding;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_dashboard_director);
+        binding = ActivityDashboardDirectorBinding.inflate(getLayoutInflater());
+        return binding.getRoot();
     }
+
 }
