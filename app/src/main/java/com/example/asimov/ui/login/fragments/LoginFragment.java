@@ -19,6 +19,7 @@ import com.example.asimov.DashboardTeacherActivity;
 import com.example.asimov.MainActivity;
 import com.example.asimov.R;
 import com.example.asimov.RegisterFragment;
+import com.example.asimov.RegisterTeacherFragment;
 import com.example.asimov.databinding.FragmentLoginBinding;
 
 public class LoginFragment extends Fragment {
@@ -47,11 +48,17 @@ public class LoginFragment extends Fragment {
         super.onViewCreated(view, savedInstanceState);
         binding.buttonFirst.setOnClickListener(v -> login());
         binding.btnRegisterDirector.setOnClickListener(v -> goToRegister());
+        binding.btnRegisterTeacher.setOnClickListener(v -> goToRegisterTeacher());
     }
 
     private void goToRegister() {
         getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
                 new RegisterFragment()).commit();
+    }
+
+    private void goToRegisterTeacher() {
+        getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
+                new RegisterTeacherFragment()).commit();
     }
 
     public void login() {

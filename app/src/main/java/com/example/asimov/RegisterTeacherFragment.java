@@ -1,10 +1,5 @@
 package com.example.asimov;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.fragment.app.Fragment;
-
 import android.os.Bundle;
 import android.view.Gravity;
 import android.view.LayoutInflater;
@@ -12,12 +7,17 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Toast;
 
-import com.example.asimov.databinding.FragmentRegisterBinding;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.fragment.app.Fragment;
+
+
+import com.example.asimov.databinding.FragmentRegisterTeacherBinding;
 import com.example.asimov.ui.login.fragments.LoginFragment;
 
-public class RegisterFragment extends Fragment {
+public class RegisterTeacherFragment extends Fragment {
 
-    private FragmentRegisterBinding binding;
+    private FragmentRegisterTeacherBinding binding;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -27,25 +27,25 @@ public class RegisterFragment extends Fragment {
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        binding = FragmentRegisterBinding.inflate(inflater, container, false);
+        binding = FragmentRegisterTeacherBinding.inflate(inflater, container, false);
         return binding.getRoot();
     }
 
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        binding.btnRegRegistrar.setOnClickListener(v -> registerDirector());
+        binding.btnRegRegistrar.setOnClickListener(v -> registerTeacher());
     }
 
-    private void registerDirector() {
+    private void registerTeacher() {
         if (
                 binding.tboxRegFirstName.getText().toString().equals("")
-        || binding.tboxRegLastName.getText().toString().equals("")
-        || binding.tboxRegPhone.getText().toString().equals("")
-        || binding.tboxRegBirthdate.getText().toString().equals("")
-        || binding.tboxRegEmail.getText().toString().equals("")
-        ||binding.tboxRegPass.getText().toString().equals("")
-        || !binding.tboxRegEmail.getText().toString().contains("@")
+                        || binding.tboxRegLastName.getText().toString().equals("")
+                        || binding.tboxRegPhone.getText().toString().equals("")
+                        || binding.tboxRegBirthdate.getText().toString().equals("")
+                        || binding.tboxRegEmail.getText().toString().equals("")
+                        ||binding.tboxRegPass.getText().toString().equals("")
+                        || !binding.tboxRegEmail.getText().toString().contains("@")
         ){
 
             Toast.makeText(getContext(), "Ingrese todos los datos solicitados", Toast.LENGTH_LONG).show();

@@ -37,4 +37,14 @@
             android:id="@+id/action_registerFragment_to_MainActivity"
             app:destination="@id/MainActivity" />
     </fragment>
+
+    <fragment
+        android:id="@+id/registerTeacherFragment"
+        android:name="com.example.asimov.RegisterTeacherFragment"
+        android:label="fragment_register_teacher"
+        tools:layout="@layout/fragment_register_teacher" >
+        <action
+            android:id="@+id/action_registerTeacherFragment_to_MainActivity"
+            app:destination="@id/MainActivity" />
+    </fragment>
 </navigation>
