@@ -65,24 +65,27 @@ public class CompetencesActivity extends Fragment {
             public void onResponse(Call<List<Competence>> call, Response<List<Competence>> response) {
                 if(!response.isSuccessful()){
                     Toast.makeText(getContext(), "Codigo de error: "+ response.code(), Toast.LENGTH_SHORT).show();
-                    List<Competence> listCompetences = new ArrayList<>();
-
-                    for(int i = 0; i <= 5; i++){
-                        Competence competence = new Competence(i,"Competencia " + Integer.toString(i+1), "descripcion");
-                        listCompetences.add(competence);
-                    }
-                    ListCompetencesAdapter listCompetencesAdapter = new ListCompetencesAdapter(listCompetences);
-                    binding.rvCompetences.setAdapter(listCompetencesAdapter);
+                    generateCompetences();
                 }
                 else {
                     List<Competence> listCompetences = response.body();
+                    ListCompetencesAdapter listCompetencesAdapter = new ListCompetencesAdapter(listCompetences);
+                    binding.rvCompetences.setAdapter(listCompetencesAdapter);
                 }
             }
-
             @Override
             public void onFailure(Call<List<Competence>> call, Throwable t) {
 
             }
         });
+    }
+    private void generateCompetences(){
+        List<Competence> listCompetences = new ArrayList<>();
+        for(int i = 0; i <= 5; i++){
+            Competence competence = new Competence(i,"Competencia " + Integer.toString(i+1), "descripcion");
+            listCompetences.add(competence);
+        }
+        ListCompetencesAdapter listCompetencesAdapter = new ListCompetencesAdapter(listCompetences);
+        binding.rvCompetences.setAdapter(listCompetencesAdapter);
     }
 }
