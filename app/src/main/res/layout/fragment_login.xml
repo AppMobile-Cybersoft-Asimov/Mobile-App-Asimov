@@ -4,22 +4,23 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".LoginFragment">
+    tools:context=".ui.login.LoginActivity">
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical"
-        android:layout_margin="16dp" >
+        android:layout_margin="16dp"
+        android:orientation="vertical">
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textAlignment="textStart"
-            android:textSize="20sp"
             android:layout_marginHorizontal="16dp"
             android:layout_marginTop="35dp"
-            android:textStyle="bold"
-            android:text="Iniciar Sesión"/>
+            android:text="Iniciar Sesión"
+            android:textAlignment="textStart"
+            android:textSize="20sp"
+            android:textStyle="bold" />
 
         <EditText
             android:id="@+id/emailEditText"
@@ -28,7 +29,7 @@
             android:layout_marginHorizontal="16dp"
             android:layout_marginTop="150dp"
             android:hint="correo@dominio.com"
-            android:inputType="textEmailAddress"/>
+            android:inputType="textEmailAddress" />
 
         <EditText
             android:id="@+id/passwordEditText"
@@ -37,12 +38,37 @@
             android:layout_marginHorizontal="16dp"
             android:layout_marginTop="35dp"
             android:hint="Contraseña"
-            android:inputType="textPassword"/>
+            android:inputType="textPassword" />
+
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+
+            android:layout_marginTop="15dp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Director?"
+                android:layout_marginEnd="10dp"/>
+
+            <androidx.appcompat.widget.SwitchCompat
+                android:id="@+id/btnSwitch"
+
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+
+        </LinearLayout>
 
         <Space
             android:layout_width="match_parent"
-            android:layout_weight="1"
-            android:layout_height="0dp" />
+            android:layout_height="0dp"
+            android:layout_weight="1" />
+
         <Button
             android:id="@+id/button_first"
             android:layout_width="match_parent"
@@ -52,7 +78,8 @@
             android:text="Entrar"
             android:textColor="@color/white"
             android:textSize="12sp"
-            app:cornerRadius="10dp"/>
+            app:cornerRadius="10dp" />
+
     </LinearLayout>
 
 
