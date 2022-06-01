@@ -5,7 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".LoginFragment">
+    tools:context=".RegisterFragment">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -21,19 +21,55 @@
             android:layout_marginHorizontal="16dp"
             android:layout_marginTop="35dp"
             android:textStyle="bold"
-            android:text="Iniciar Sesión"/>
+            android:text="Registro de Director"/>
 
         <EditText
-            android:id="@+id/emailEditText"
+            android:id="@+id/tboxRegFirstName"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="16dp"
-            android:layout_marginTop="150dp"
+            android:layout_marginTop="35dp"
+            android:hint="Nombre"
+            android:inputType="text"/>
+
+        <EditText
+            android:id="@+id/tboxRegLastName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="16dp"
+            android:layout_marginTop="35dp"
+            android:hint="Apellido"
+            android:inputType="text"/>
+
+        <EditText
+            android:id="@+id/tboxRegPhone"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="16dp"
+            android:layout_marginTop="35dp"
+            android:hint="Telefono"
+            android:inputType="phone"/>
+
+        <EditText
+            android:id="@+id/tboxRegBirthdate"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="16dp"
+            android:layout_marginTop="35dp"
+            android:hint="Fecha de Nacimiento"
+            android:inputType="date"/>
+
+        <EditText
+            android:id="@+id/tboxRegEmail"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="16dp"
+            android:layout_marginTop="35dp"
             android:hint="correo@dominio.com"
             android:inputType="textEmailAddress"/>
 
         <EditText
-            android:id="@+id/passwordEditText"
+            android:id="@+id/tboxRegPass"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="16dp"
@@ -45,37 +81,17 @@
             android:layout_width="match_parent"
             android:layout_weight="1"
             android:layout_height="0dp" />
+
         <Button
-            android:id="@+id/button_first"
+            android:id="@+id/btnRegRegistrar"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:backgroundTint="#818181"
             android:paddingHorizontal="35dp"
-            android:text="Entrar"
-            android:textColor="@color/white"
-            android:textSize="12sp"
-            app:cornerRadius="10dp"/>
-        <Button
-            android:id="@+id/btnRegisterDirector"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:backgroundTint="#818181"
-            android:paddingHorizontal="35dp"
-            android:text="Registrar nuevo director"
-            android:textColor="@color/white"
-            android:textSize="12sp"
-            app:cornerRadius="10dp"/>
-        <Button
-            android:id="@+id/btnRegisterTeacher"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:backgroundTint="#818181"
-            android:paddingHorizontal="35dp"
-            android:text="Registrar nuevo profesor"
+            android:text="Registrar"
             android:textColor="@color/white"
             android:textSize="12sp"
             app:cornerRadius="10dp"/>
     </LinearLayout>
-
 
 </androidx.appcompat.widget.LinearLayoutCompat>

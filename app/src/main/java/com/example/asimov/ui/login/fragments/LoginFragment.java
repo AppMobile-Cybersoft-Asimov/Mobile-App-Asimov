@@ -12,11 +12,13 @@ import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
-import androidx.navigation.fragment.NavHostFragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 
 import com.example.asimov.MainActivity;
-import com.example.asimov.databinding.FragmentLoginBinding;
 import com.example.asimov.R;
+import com.example.asimov.RegisterFragment;
+import com.example.asimov.databinding.FragmentLoginBinding;
 
 public class LoginFragment extends Fragment {
 
@@ -43,6 +45,16 @@ public class LoginFragment extends Fragment {
     public void onViewCreated(@NonNull View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         binding.buttonFirst.setOnClickListener(v -> login());
+        binding.btnRegisterDirector.setOnClickListener(v -> goToRegister());
+    }
+
+    private void goToRegister() {
+        Fragment fragment = new RegisterFragment();
+        FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
+        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+        fragmentTransaction.replace(R.id.registerFragment, fragment);
+        fragmentTransaction.addToBackStack(null);
+        fragmentTransaction.commit();
     }
 
     public void login() {
@@ -57,7 +69,6 @@ public class LoginFragment extends Fragment {
         Intent intent = new Intent(getActivity(), MainActivity.class);
         intent.putExtra("userType", mail.contains("docente") ? "docente" : "director");
         getActivity().startActivity(intent);
-
     }
 
     @Override
