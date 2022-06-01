@@ -14,6 +14,9 @@
         <action
             android:id="@+id/action_LoginFragment_to_MainActivity"
             app:destination="@id/MainActivity" />
+        <action
+            android:id="@+id/action_LoginFragment_to_registerFragment"
+            app:destination="@id/registerFragment" />
     </fragment>
     <fragment
         android:id="@+id/MainActivity"
@@ -24,5 +27,24 @@
         <action
             android:id="@+id/action_MainActivity_to_LoginFragment"
             app:destination="@id/LoginFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/registerFragment"
+        android:name="com.example.asimov.RegisterFragment"
+        android:label="fragment_register"
+        tools:layout="@layout/fragment_register" >
+        <action
+            android:id="@+id/action_registerFragment_to_MainActivity"
+            app:destination="@id/MainActivity" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/registerTeacherFragment"
+        android:name="com.example.asimov.RegisterTeacherFragment"
+        android:label="fragment_register_teacher"
+        tools:layout="@layout/fragment_register_teacher" >
+        <action
+            android:id="@+id/action_registerTeacherFragment_to_MainActivity"
+            app:destination="@id/MainActivity" />
     </fragment>
 </navigation>

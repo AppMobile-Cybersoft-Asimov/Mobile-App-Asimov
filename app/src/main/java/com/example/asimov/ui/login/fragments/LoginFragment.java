@@ -12,7 +12,18 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
+
+
+import com.example.asimov.DashboardTeacherActivity;
 import com.example.asimov.MainActivity;
+
+import com.example.asimov.R;
+import com.example.asimov.RegisterFragment;
+import com.example.asimov.RegisterTeacherFragment;
+import com.example.asimov.databinding.FragmentLoginBinding;
+
 import com.example.asimov.data.RetrofitClient;
 import com.example.asimov.data.model.LoginRequest;
 import com.example.asimov.data.model.LoginResponse;
@@ -24,6 +35,7 @@ import com.example.asimov.manager.SessionManager;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
+
 
 public class LoginFragment extends Fragment {
 
@@ -46,6 +58,18 @@ public class LoginFragment extends Fragment {
     public void onViewCreated(@NonNull View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         binding.buttonFirst.setOnClickListener(v -> login());
+        binding.btnRegisterDirector.setOnClickListener(v -> goToRegister());
+        binding.btnRegisterTeacher.setOnClickListener(v -> goToRegisterTeacher());
+    }
+
+    private void goToRegister() {
+        getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
+                new RegisterFragment()).commit();
+    }
+
+    private void goToRegisterTeacher() {
+        getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
+                new RegisterTeacherFragment()).commit();
     }
 
     public void login() {
@@ -57,6 +81,9 @@ public class LoginFragment extends Fragment {
         } else {
             loginTeacher(email, pass);
         }
+        Intent intent = new Intent(getActivity(), MainActivity.class);
+        intent.putExtra("userType", mail.contains("docente") ? "docente" : "director");
+        getActivity().startActivity(intent);
 
     }
 
