@@ -15,6 +15,7 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
+import com.example.asimov.DashboardTeacherActivity;
 import com.example.asimov.MainActivity;
 import com.example.asimov.R;
 import com.example.asimov.RegisterFragment;
@@ -49,12 +50,8 @@ public class LoginFragment extends Fragment {
     }
 
     private void goToRegister() {
-        Fragment fragment = new RegisterFragment();
-        FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
-        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-        fragmentTransaction.replace(R.id.registerFragment, fragment);
-        fragmentTransaction.addToBackStack(null);
-        fragmentTransaction.commit();
+        getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
+                new RegisterFragment()).commit();
     }
 
     public void login() {
