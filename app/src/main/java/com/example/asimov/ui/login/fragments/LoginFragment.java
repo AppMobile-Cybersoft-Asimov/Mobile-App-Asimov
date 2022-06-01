@@ -41,7 +41,6 @@ public class LoginFragment extends Fragment {
 
     private FragmentLoginBinding binding;
     SharedPreferences pref;
-    private Boolean toggledSwitch;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -81,9 +80,6 @@ public class LoginFragment extends Fragment {
         } else {
             loginTeacher(email, pass);
         }
-        Intent intent = new Intent(getActivity(), MainActivity.class);
-        intent.putExtra("userType", mail.contains("docente") ? "docente" : "director");
-        getActivity().startActivity(intent);
 
     }
 
