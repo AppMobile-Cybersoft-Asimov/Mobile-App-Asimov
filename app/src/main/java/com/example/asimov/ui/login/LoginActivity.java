@@ -3,7 +3,11 @@ package com.example.asimov.ui.login;
 import android.os.Bundle;
 
 import com.example.asimov.databinding.ActivityLoginBinding;
+
 import com.example.asimov.ui.login.fragments.LoginFragment;
+
+import com.example.asimov.manager.SessionManager;
+import com.google.android.material.snackbar.Snackbar;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.navigation.ui.AppBarConfiguration;
@@ -17,6 +21,7 @@ public class LoginActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        SessionManager.initiateInstance(getApplicationContext());
         binding = ActivityLoginBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
         setSupportActionBar(binding.toolbar);
