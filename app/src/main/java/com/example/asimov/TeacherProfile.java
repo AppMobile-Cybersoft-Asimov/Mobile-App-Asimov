@@ -36,7 +36,7 @@ public class TeacherProfile extends Fragment {
                 LinearLayoutManager.VERTICAL, false));
         binding.recyclerCourses.setNestedScrollingEnabled(false);
 
-        getTeacherById(1);
+        getTeacherById(3);
         getCourses();
         return binding.getRoot();
     }
@@ -82,6 +82,7 @@ public class TeacherProfile extends Fragment {
                 Teachers teachers = response.body();
 
                 String firstNameCard = "";
+                String lastNameCard = "";
                 String firstName = "";
                 String lastName = "";
                 String age = "";
@@ -96,6 +97,7 @@ public class TeacherProfile extends Fragment {
                 double currentPoints = 0;
 
                 firstNameCard += teachers.getFirstName()+" ";
+                lastNameCard += teachers.getLastName();
                 firstName += "First Name: "+teachers.getFirstName();
                 lastName += "Last Name: "+teachers.getLastName();
                 age += "Age: "+teachers.getAge();
@@ -110,7 +112,7 @@ public class TeacherProfile extends Fragment {
                 teacherProgress += String.valueOf(percentage) + "%";
 
                 binding.txtTCardFirstName.setText(firstNameCard);
-                binding.txtTCardLastName.setText(lastName);
+                binding.txtTCardLastName.setText(lastNameCard);
                 binding.txtTFirstName.setText(firstName);
                 binding.txtTLastName.setText(lastName);
                 binding.txtTAge.setText(age);
