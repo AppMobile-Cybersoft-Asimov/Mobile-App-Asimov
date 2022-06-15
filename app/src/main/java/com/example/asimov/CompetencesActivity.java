@@ -52,6 +52,7 @@ public class CompetencesActivity extends Fragment {
     }
 
     private void retrieveCompetences(){
+
         Retrofit retrofit = new Retrofit.Builder()
                 .baseUrl("https://asimov.azurewebsites.net/")
                 .addConverterFactory(GsonConverterFactory.create())
