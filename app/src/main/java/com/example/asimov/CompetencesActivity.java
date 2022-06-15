@@ -13,6 +13,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Toast;
 
+
 import com.example.asimov.data.RetrofitClient;
 import com.example.asimov.databinding.ActivityAnnouncementsBinding;
 import com.example.asimov.databinding.ActivityCompetencesBinding;
@@ -74,15 +75,5 @@ public class CompetencesActivity extends Fragment {
 
             }
         });
-    }
-
-    private void generateCompetences() {
-        List<Competence> listCompetences = new ArrayList<>();
-        for (int i = 0; i <= 5; i++) {
-            Competence competence = new Competence(i, "Competencia " + Integer.toString(i + 1), "descripcion");
-            listCompetences.add(competence);
-        }
-        ListCompetencesAdapter listCompetencesAdapter = new ListCompetencesAdapter(listCompetences);
-        binding.rvCompetences.setAdapter(listCompetencesAdapter);
     }
 }
