@@ -8,6 +8,8 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.asimov.data.model.Teacher;
+
 import java.util.List;
 
 public class TeachersAdapter extends RecyclerView.Adapter<TeachersAdapter.viewHolder> {

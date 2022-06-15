@@ -1,5 +1,6 @@
 package com.example.asimov.data.service;
 
+import com.example.asimov.data.model.Announcement;
 import com.example.asimov.data.model.LoginRequest;
 import com.example.asimov.data.model.LoginResponse;
 import com.example.asimov.data.model.RegisterRequest;
@@ -15,4 +16,6 @@ public interface DirectorService {
     Call<LoginResponse> login(@Body LoginRequest login);
     @POST("auth/sign-up/director")
     Call<RegisterResponse> register(@Body RegisterRequest request);
+    @POST("api/v1/announcements")
+    Call<Announcement> publishAnnouncement(@Body Announcement announcement);
 }

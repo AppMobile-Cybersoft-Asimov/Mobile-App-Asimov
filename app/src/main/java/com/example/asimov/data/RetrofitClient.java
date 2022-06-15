@@ -28,4 +28,11 @@ public class RetrofitClient {
                 .build();
     }
 
+    public static Retrofit createInstanceWithoutToken() {
+        return new Retrofit.Builder()
+                .baseUrl("https://asimov.azurewebsites.net/")
+                .addConverterFactory(GsonConverterFactory.create())
+                .build();
+    }
+
 }

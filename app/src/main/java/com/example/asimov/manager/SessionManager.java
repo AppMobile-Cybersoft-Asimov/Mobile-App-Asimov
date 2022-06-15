@@ -9,6 +9,7 @@ public class SessionManager {
 
     private static SessionManager instance;
     private final String USER_TOKEN = "user_token";
+    private final String USER_ID = "user_id";
     private final SharedPreferences prefs;
 
 
@@ -36,4 +37,15 @@ public class SessionManager {
         return "Bearer " + prefs.getString(USER_TOKEN, null);
     }
 
+    public Integer getUserId() {
+        if (prefs.getString(USER_ID, null) == null)
+            return null;
+        return Integer.valueOf(prefs.getString(USER_ID, null));
+    }
+
+    public void saveUserId(int id) {
+        SharedPreferences.Editor editor = prefs.edit();
+        editor.putString(USER_ID, String.valueOf(id));
+        editor.apply();
+    }
 }
