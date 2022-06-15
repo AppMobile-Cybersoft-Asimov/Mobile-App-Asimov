@@ -10,7 +10,7 @@ import retrofit2.http.Path;
 
 public interface PlaceHolderApi {
 
-    @GET("teachers/{id}")
+    @GET("api/v1/teachers/{id}")
     Call<Teachers> getTeacherById(@Path("id") int id);
 
     @GET("courses")

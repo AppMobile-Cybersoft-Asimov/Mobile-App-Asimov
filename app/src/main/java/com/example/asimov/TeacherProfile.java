@@ -9,6 +9,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import com.example.asimov.adapters.CourseAdapter;
+import com.example.asimov.adapters.TeacherAdapter;
+import com.example.asimov.data.RetrofitClient;
 import com.example.asimov.databinding.ActivityTeacherProfileBinding;
 import java.util.ArrayList;
 import java.util.List;
@@ -39,7 +41,7 @@ public class TeacherProfile extends Fragment {
 
         //Log.i(TAG, "Teacher.getView()" + position);
 
-        //getTeacherById(1);
+        getTeacherById(1);
         getCourses();
         return binding.getRoot();
     }
@@ -71,57 +73,59 @@ public class TeacherProfile extends Fragment {
     }
 
     private void getTeacherById(int id) {
-        Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl("https://asimov.azurewebsites.net/api/v1/")
-                .addConverterFactory(GsonConverterFactory.create())
-                .build();
-        PlaceHolderApi placeholder = retrofit.create(PlaceHolderApi.class);
-        Call<Teachers> inter = placeholder.getTeacherById(id);
+
+        PlaceHolderApi asimovApi = RetrofitClient.createInstance().create(PlaceHolderApi.class);
+        Call<Teachers> inter = asimovApi.getTeacherById(id);
 
         inter.enqueue(new Callback<Teachers>() {
             @Override
             public void onResponse(Call<Teachers> call, Response<Teachers> response) {
                 if(!response.isSuccessful()) {
                     binding.txtTFirstName.setText("Codigo de error: "+response.code());
+                    return;
                 }
                 Teachers teachers = response.body();
+                //System.out.println(teachers);
 
-                String firtNameCard = "";
-                String lastNameCard = "";
-                String idCard = "";
-
-                String firtName = "";
+                String firstNameCard = "";
+                String firstName = "";
                 String lastName = "";
                 String age = "";
                 String email = "";
                 String phone = "";
                 String point = "";
-                String directorId = "";
+                String firstNameP = "";
+                String teacherProgress = "";
 
-                firtNameCard += teachers.getFirstName();
-                lastNameCard += teachers.getLastName();
-                idCard += teachers.getId();
+                double totalPoints = 1000;
+                double percentage = 0;
+                double currentPoints = 0;
 
-                firtName += "First Name: "+teachers.getFirstName();
-                lastName += "Last Name: "+teachers.getFirstName();
-                age += "Age: "+teachers.getFirstName();
-                email += "Email: "+teachers.getFirstName();
-                phone += "Phone: "+teachers.getFirstName();
+                firstNameCard += teachers.getFirstName()+" ";
+                firstName += "First Name: "+teachers.getFirstName();
+                lastName += "Last Name: "+teachers.getLastName();
+                age += "Age: "+teachers.getAge();
+                email += "Email: "+teachers.getEmail();
+                phone += "Phone: "+teachers.getPhone();
                 point += teachers.getPoint()+" Pts.";
-                directorId += "Director Id"+teachers.getDirectorId();
+                firstNameP += "Teacher: "+teachers.getFirstName();
+                currentPoints = teachers.getPoint();
 
-                binding.txtTCardFirstName.setText(firtNameCard);
-                binding.txtTCardLastName.setText(lastNameCard);
-                //binding.txtTId.setText(idCard);
+                percentage = (currentPoints/totalPoints)*100;
+                int per = (int)percentage;
+                teacherProgress += String.valueOf(percentage) + "%";
 
-                binding.txtTFirstName.setText(firtName);
+                binding.txtTCardFirstName.setText(firstNameCard);
+                binding.txtTCardLastName.setText(lastName);
+                binding.txtTFirstName.setText(firstName);
                 binding.txtTLastName.setText(lastName);
                 binding.txtTAge.setText(age);
                 binding.txtTEmail.setText(email);
                 binding.txtTPhone.setText(phone);
-                //binding.txtTDirectorId.setText(directorId);
-
                 binding.txtTPoint.setText(point);
+                binding.txtTPCName.setText(firstNameP);
+                binding.txtTProgress.setText(teacherProgress);
+                binding.progressBar.setProgress(per);
             }
 
             @Override
