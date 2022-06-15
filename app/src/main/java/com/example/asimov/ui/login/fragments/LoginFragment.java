@@ -95,6 +95,7 @@ public class LoginFragment extends Fragment {
 
                 LoginResponse loginResponse = response.body();
                 SessionManager.getInstance().saveAuthToken(loginResponse.getToken());
+                SessionManager.getInstance().saveUserId(loginResponse.getId());
                 Intent intent = new Intent(getActivity(), MainActivity.class);
                 intent.putExtra("userType", "director");
                 getActivity().startActivity(intent);
