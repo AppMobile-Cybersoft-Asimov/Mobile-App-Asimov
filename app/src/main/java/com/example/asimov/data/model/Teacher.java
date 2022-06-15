@@ -1,4 +1,4 @@
-package com.example.asimov;
+package com.example.asimov.data.model;
 
 public class Teacher {
     private Long id;

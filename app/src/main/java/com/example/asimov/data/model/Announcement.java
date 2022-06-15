@@ -1,14 +1,30 @@
-package com.example.asimov;
+package com.example.asimov.data.model;
 
 public class Announcement {
+
     private Long id;
     private String title;
     private String description;
+    private Integer directorId;
 
-    public Announcement(Long id, String title, String description) {
+    public Announcement() {
+    }
+
+    public Integer getDirectorId() {
+        return directorId;
+    }
+
+    public Announcement setDirectorId(Integer directorId) {
+        this.directorId = directorId;
+        return this;
+    }
+
+
+    public Announcement(Long id, String title, String description, Integer directorId) {
         this.id = id;
         this.title = title;
         this.description = description;
+        this.directorId = directorId;
     }
 
     public Long getId() {
