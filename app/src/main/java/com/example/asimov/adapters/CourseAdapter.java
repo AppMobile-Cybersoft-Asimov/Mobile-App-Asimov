@@ -11,7 +11,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.asimov.R;
 
 import java.util.List;
-import Beans.Courses;
+import com.example.asimov.data.model.Courses;
 
 public class CourseAdapter extends RecyclerView.Adapter<CourseAdapter.viewHolder> {
 

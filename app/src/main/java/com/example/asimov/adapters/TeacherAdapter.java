@@ -12,7 +12,7 @@ import com.example.asimov.R;
 
 import java.util.List;
 
-import Beans.Teachers;
+import com.example.asimov.data.model.Teachers;
 
 public class TeacherAdapter extends RecyclerView.Adapter<TeacherAdapter.viewHolder> {
     

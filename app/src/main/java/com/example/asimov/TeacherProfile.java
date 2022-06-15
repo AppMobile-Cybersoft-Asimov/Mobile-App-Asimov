@@ -9,14 +9,13 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import com.example.asimov.adapters.CourseAdapter;
-import com.example.asimov.adapters.TeacherAdapter;
 import com.example.asimov.data.RetrofitClient;
 import com.example.asimov.databinding.ActivityTeacherProfileBinding;
 import java.util.ArrayList;
 import java.util.List;
-import Beans.Courses;
-import Beans.Teachers;
-import Interface.PlaceHolderApi;
+import com.example.asimov.data.model.Courses;
+import com.example.asimov.data.model.Teachers;
+import com.example.asimov.data.service.AsimovApi;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -28,8 +27,6 @@ public class TeacherProfile extends Fragment {
     private List<Courses> courseData;
     private ActivityTeacherProfileBinding binding;
 
-    //private static final String TAG = "TeacherProfile";
-
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -38,8 +35,6 @@ public class TeacherProfile extends Fragment {
         binding.recyclerCourses.setLayoutManager(new LinearLayoutManager(getContext(),
                 LinearLayoutManager.VERTICAL, false));
         binding.recyclerCourses.setNestedScrollingEnabled(false);
-
-        //Log.i(TAG, "Teacher.getView()" + position);
 
         getTeacherById(1);
         getCourses();
@@ -51,8 +46,8 @@ public class TeacherProfile extends Fragment {
                 .baseUrl("https://asimov.azurewebsites.net/api/v1/")
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
-        PlaceHolderApi placeHolderApi = retrofit.create(PlaceHolderApi.class);
-        Call<List<Courses>> inter = placeHolderApi.getCourses();
+        AsimovApi asimovApi = retrofit.create(AsimovApi.class);
+        Call<List<Courses>> inter = asimovApi.getCourses();
 
         inter.enqueue(new Callback<List<Courses>>() {
             @Override
@@ -74,7 +69,7 @@ public class TeacherProfile extends Fragment {
 
     private void getTeacherById(int id) {
 
-        PlaceHolderApi asimovApi = RetrofitClient.createInstance().create(PlaceHolderApi.class);
+        AsimovApi asimovApi = RetrofitClient.createInstance().create(AsimovApi.class);
         Call<Teachers> inter = asimovApi.getTeacherById(id);
 
         inter.enqueue(new Callback<Teachers>() {
@@ -85,7 +80,6 @@ public class TeacherProfile extends Fragment {
                     return;
                 }
                 Teachers teachers = response.body();
-                //System.out.println(teachers);
 
                 String firstNameCard = "";
                 String firstName = "";

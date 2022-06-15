@@ -1,4 +1,4 @@
-package Beans;
+package com.example.asimov.data.model;
 
 public class Teachers {
 
