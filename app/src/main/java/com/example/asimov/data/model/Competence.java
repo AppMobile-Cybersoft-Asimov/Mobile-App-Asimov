@@ -1,4 +1,4 @@
-package Models;
+package com.example.asimov.data.model;
 
 public class Competence {
     int id;

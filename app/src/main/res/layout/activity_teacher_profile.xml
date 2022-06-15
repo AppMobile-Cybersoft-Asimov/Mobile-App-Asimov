@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".TeacherProfile"
     android:background="#f3f3f6">
     <LinearLayout
@@ -11,7 +11,7 @@
         android:layout_height="wrap_content"
         android:orientation="vertical">
 
-        <!-- Teacher Information -->
+        <!-- Teachers Information -->
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -32,10 +32,12 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="vertical"
+                android:orientation="horizontal"
                 android:gravity="center"
                 android:background="@color/black">
+
                 <TextView
+                    android:id="@+id/txtTCardFirstName"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:textSize="20sp"
@@ -44,7 +46,18 @@
                     android:paddingTop="8dp"
                     android:paddingBottom="8dp"
                     android:textColor="@color/white"
-                    android:text="Nombre Apellido"/>
+                    android:text="Juan"/>
+                <TextView
+                    android:id="@+id/txtTCardLastName"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="20sp"
+                    android:textStyle="bold"
+                    android:textAlignment="center"
+                    android:paddingTop="8dp"
+                    android:paddingBottom="8dp"
+                    android:textColor="@color/white"
+                    android:text=" Perez"/>
             </LinearLayout>
 
 
@@ -56,35 +69,40 @@
                 android:gravity="start"
                 android:layout_marginTop="35dp">
                 <TextView
+                    android:id="@+id/txtTFirstName"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:textSize="18sp"
-                    android:text="Name(s): Nombre"/>
+                    android:text="First Name: Juan"/>
                 <TextView
+                    android:id="@+id/txtTLastName"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:textSize="18sp"
-                    android:text="Last Name: Apellido"/>
+                    android:text="Last Name: Perez"/>
                 <TextView
+                    android:id="@+id/txtTAge"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:textSize="18sp"
-                    android:text="Age: Edad"/>
+                    android:text="Age: 22"/>
                 <TextView
+                    android:id="@+id/txtTEmail"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:textSize="18sp"
-                    android:text="Email: ejemplo@outlook.com"/>
+                    android:text="Email: jperz@gmail.com"/>
                 <TextView
+                    android:id="@+id/txtTPhone"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:textSize="18sp"
-                    android:text="Phone: 999 999 999"/>
+                    android:text="Phone: 987654321"/>
 
             </LinearLayout>
         </androidx.cardview.widget.CardView>
 
-        <!-- Teacher Progress -->
+        <!-- Teachers Progress -->
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -109,17 +127,20 @@
                 android:padding="16dp">
 
                 <TextView
+                    android:id="@+id/txtTProgress"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:textSize="18sp"
-                    android:text="X%"/>
+                    android:text="24%"/>
 
                 <ProgressBar
-                    android:id="@+id/my_progressBar"
+                    android:id="@+id/progressBar"
                     style="@style/Widget.AppCompat.ProgressBar.Horizontal"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="8dp"/>
+                    android:layout_marginTop="8dp"
+                    android:scaleY="2"
+                    android:progress="24"/>
 
             </LinearLayout>
         </androidx.cardview.widget.CardView>
@@ -151,11 +172,12 @@
                 android:paddingRight="10dp">
 
                 <TextView
+                    android:id="@+id/txtTPCName"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:drawableLeft="@drawable/ic_baseline_check_24"
                     android:drawablePadding="5dp"
-                    android:text="Teacher: Nombre"
+                    android:text="Teacher: Juan"
                     android:textSize="18sp" />
 
                 <TextView
@@ -168,14 +190,15 @@
                     android:layout_marginStart="30dp"/>
 
                 <TextView
+                    android:id="@+id/txtTPoint"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:textSize="20sp"
                     android:textStyle="bold"
                     android:textColor="#01904b"
-                    android:text="X Pts."
+                    android:text="400 Pts."
                     android:layout_marginTop="15dp"
-                    android:layout_marginStart="260dp"/>
+                    android:layout_marginStart="230dp"/>
             </RelativeLayout>
         </androidx.cardview.widget.CardView>
 
@@ -188,186 +211,16 @@
             android:textStyle="bold"
             android:layout_marginStart="25dp"
             android:layout_marginTop="20dp"
+            android:layout_marginBottom="10dp"
             android:text="Courses in Progress and Completed"/>
-        <GridLayout
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recyclerCourses"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:columnCount="1"
-            android:rowCount="5"
-            android:alignmentMode="alignMargins"
-            android:columnOrderPreserved="false"
-            android:layout_marginHorizontal="28dp">
-            <androidx.cardview.widget.CardView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                app:cardElevation="5dp"
-                android:layout_columnWeight="1"
-                app:cardCornerRadius="8dp"
-                android:layout_marginTop="8dp"
-                android:layout_marginBottom="8dp">
-                <RelativeLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical"
-                    android:padding="16dp">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:textSize="18sp"
-                        android:drawableLeft="@drawable/ic_baseline_assignment_24"
-                        android:drawablePadding="5dp"
-                        android:text="Course: Nombre del Curso"/>
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:textSize="18sp"
-                        android:textStyle="bold"
-                        android:textColor="#ff0000"
-                        android:text="Estado"
-                        android:layout_marginTop="25dp"
-                        android:layout_marginLeft="30dp"/>
-
-                </RelativeLayout>
-            </androidx.cardview.widget.CardView>
-
-            <androidx.cardview.widget.CardView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                app:cardElevation="5dp"
-                android:layout_columnWeight="1"
-                app:cardCornerRadius="8dp"
-                android:layout_marginTop="8dp"
-                android:layout_marginBottom="8dp">
-                <RelativeLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical"
-                    android:padding="16dp">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:textSize="18sp"
-                        android:drawableLeft="@drawable/ic_baseline_assignment_24"
-                        android:drawablePadding="5dp"
-                        android:text="Course: Nombre del Curso"/>
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:textSize="18sp"
-                        android:textStyle="bold"
-                        android:textColor="#ff0000"
-                        android:text="Estado"
-                        android:layout_marginTop="25dp"
-                        android:layout_marginLeft="30dp"/>
-
-                </RelativeLayout>
-            </androidx.cardview.widget.CardView>
-
-            <androidx.cardview.widget.CardView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                app:cardElevation="5dp"
-                android:layout_columnWeight="1"
-                app:cardCornerRadius="8dp"
-                android:layout_marginTop="8dp"
-                android:layout_marginBottom="8dp">
-                <RelativeLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical"
-                    android:padding="16dp">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:textSize="18sp"
-                        android:drawableLeft="@drawable/ic_baseline_assignment_24"
-                        android:drawablePadding="5dp"
-                        android:text="Course: Nombre del Curso"/>
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:textSize="18sp"
-                        android:textStyle="bold"
-                        android:textColor="#ff0000"
-                        android:text="Estado"
-                        android:layout_marginTop="25dp"
-                        android:layout_marginLeft="30dp"/>
-
-                </RelativeLayout>
-            </androidx.cardview.widget.CardView>
-
-            <androidx.cardview.widget.CardView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                app:cardElevation="5dp"
-                android:layout_columnWeight="1"
-                app:cardCornerRadius="8dp"
-                android:layout_marginTop="8dp"
-                android:layout_marginBottom="8dp">
-                <RelativeLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical"
-                    android:padding="16dp">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:textSize="18sp"
-                        android:drawableLeft="@drawable/ic_baseline_assignment_24"
-                        android:drawablePadding="5dp"
-                        android:text="Course: Nombre del Curso"/>
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:textSize="18sp"
-                        android:textStyle="bold"
-                        android:textColor="#ff0000"
-                        android:text="Estado"
-                        android:layout_marginTop="25dp"
-                        android:layout_marginLeft="30dp"/>
-
-                </RelativeLayout>
-            </androidx.cardview.widget.CardView>
-
-            <androidx.cardview.widget.CardView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                app:cardElevation="5dp"
-                android:layout_columnWeight="1"
-                app:cardCornerRadius="8dp"
-                android:layout_marginTop="8dp"
-                android:layout_marginBottom="8dp">
-                <RelativeLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical"
-                    android:padding="16dp">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:textSize="18sp"
-                        android:drawableLeft="@drawable/ic_baseline_assignment_24"
-                        android:drawablePadding="5dp"
-                        android:text="Course: Nombre del Curso"/>
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:textSize="18sp"
-                        android:textStyle="bold"
-                        android:textColor="#ff0000"
-                        android:text="Estado"
-                        android:layout_marginTop="25dp"
-                        android:layout_marginLeft="30dp"/>
-
-                </RelativeLayout>
-            </androidx.cardview.widget.CardView>
-        </GridLayout>
-
+            android:layout_marginBottom="10dp"
+            android:layout_marginRight="28dp"
+            android:layout_marginLeft="28dp"/>
 
     </LinearLayout>
-</ScrollView>
+</androidx.core.widget.NestedScrollView>

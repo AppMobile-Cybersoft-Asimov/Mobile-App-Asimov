@@ -12,7 +12,7 @@ import com.example.asimov.R;
 
 import java.util.List;
 
-import Models.Competence;
+import com.example.asimov.data.model.Competence;
 
 public class ListCompetencesAdapter extends RecyclerView.Adapter<ListCompetencesAdapter.viewHolder> {
 
