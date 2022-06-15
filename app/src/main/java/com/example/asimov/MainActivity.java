@@ -68,7 +68,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new TeacherProfile()).commit();
                 break;
             case R.id.nav_competences:
-                getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new frag_announcements()).commit();
+                getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new CompetencesActivity()).commit();
                 break;
         }
         drawerLayout.closeDrawer(GravityCompat.START);
