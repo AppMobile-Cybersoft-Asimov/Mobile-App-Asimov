@@ -9,6 +9,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import com.example.asimov.adapters.CourseAdapter;
+import com.example.asimov.data.RetrofitClient;
 import com.example.asimov.databinding.ActivityTeacherProfileBinding;
 import java.util.ArrayList;
 import java.util.List;
@@ -45,11 +46,7 @@ public class TeacherProfile extends Fragment {
     }
 
     private void getCourses() {
-        Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl("https://asimov.azurewebsites.net/api/v1/")
-                .addConverterFactory(GsonConverterFactory.create())
-                .build();
-        PlaceHolderApi placeHolderApi = retrofit.create(PlaceHolderApi.class);
+        PlaceHolderApi placeHolderApi = RetrofitClient.createInstance().create(PlaceHolderApi.class);
         Call<List<Courses>> inter = placeHolderApi.getCourses();
 
         inter.enqueue(new Callback<List<Courses>>() {
@@ -71,11 +68,7 @@ public class TeacherProfile extends Fragment {
     }
 
     private void getTeacherById(int id) {
-        Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl("https://asimov.azurewebsites.net/api/v1/")
-                .addConverterFactory(GsonConverterFactory.create())
-                .build();
-        PlaceHolderApi placeholder = retrofit.create(PlaceHolderApi.class);
+        PlaceHolderApi placeholder = RetrofitClient.createInstance().create(PlaceHolderApi.class);
         Call<Teachers> inter = placeholder.getTeacherById(id);
 
         inter.enqueue(new Callback<Teachers>() {
