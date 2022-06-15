@@ -26,6 +26,7 @@
             android:textSize="20sp" />
 
         <include
+            android:id="@+id/publishCard"
             layout="@layout/card_publish_announcements"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />

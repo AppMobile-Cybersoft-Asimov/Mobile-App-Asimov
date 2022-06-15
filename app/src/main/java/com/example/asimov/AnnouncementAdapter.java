@@ -1,11 +1,13 @@
 package com.example.asimov;
 
 import android.view.LayoutInflater;
+import android.view.View;
 import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.asimov.data.model.Announcement;
 import com.example.asimov.databinding.CardAnnouncementBinding;
 
 import java.util.List;
@@ -13,9 +15,11 @@ import java.util.List;
 public class AnnouncementAdapter extends RecyclerView.Adapter<AnnouncementAdapter.ViewHolder> {
 
     private final List<Announcement> data;
+    private Boolean showDelete;
 
-    public AnnouncementAdapter(List<Announcement> data) {
+    public AnnouncementAdapter(List<Announcement> data, boolean showDelete) {
         this.data = data;
+        this.showDelete = showDelete;
     }
 
     @NonNull
@@ -35,7 +39,7 @@ public class AnnouncementAdapter extends RecyclerView.Adapter<AnnouncementAdapte
         return data == null ? 0 : data.size();
     }
 
-    public static class ViewHolder extends RecyclerView.ViewHolder {
+    public class ViewHolder extends RecyclerView.ViewHolder {
 
         private final CardAnnouncementBinding binding;
 
@@ -47,6 +51,9 @@ public class AnnouncementAdapter extends RecyclerView.Adapter<AnnouncementAdapte
         public void bind(Announcement announcement) {
             binding.txtTitle.setText(announcement.getTitle());
             binding.txtDescription.setText(announcement.getDescription());
+            if (!showDelete) {
+                binding.btnDelete.setVisibility(View.GONE);
+            }
         }
     }
 
