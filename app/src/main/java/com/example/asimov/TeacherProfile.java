@@ -38,6 +38,9 @@ public class TeacherProfile extends Fragment {
 
         getTeacherById(3);
         getCourses();
+
+
+
         return binding.getRoot();
     }
 

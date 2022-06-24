@@ -19,4 +19,7 @@ public interface AsimovApi {
 
     @GET("/api/v1/competences")
     Call<List<Competence>> getCompetences();
+
+    @GET("/api/v1/courses/{id}")
+    Call<Courses> getCourseById(@Path("id") int id);
 }
