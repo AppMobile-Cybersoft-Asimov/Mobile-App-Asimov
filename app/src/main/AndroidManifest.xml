@@ -12,7 +12,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Asimov">
         <activity
-            android:name=".CourseInformation"
+            android:name=".CourseInformationActivity"
             android:exported="false" />
         <activity
             android:name=".TeachersActivity"

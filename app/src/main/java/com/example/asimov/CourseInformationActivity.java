@@ -13,11 +13,12 @@ import android.widget.Toast;
 
 import com.example.asimov.data.RetrofitClient;
 import com.example.asimov.data.model.Announcement;
-import com.example.asimov.data.model.Competence;
+import com.example.asimov.data.model.CourseCompetence;
 import com.example.asimov.data.model.CourseItem;
 import com.example.asimov.data.model.Courses;
 import com.example.asimov.data.service.AnnouncementsService;
 import com.example.asimov.data.service.AsimovApi;
+import com.example.asimov.data.service.CompetencesService;
 import com.example.asimov.data.service.CourseService;
 import com.example.asimov.databinding.ActivityCourseInformationBinding;
 
@@ -32,10 +33,10 @@ import retrofit2.Response;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
-public class CourseInformation extends Fragment {
+public class CourseInformationActivity extends Fragment {
 
     //private Courses course = new Courses();
-    private List<Competence> competencesList;
+    private List<CourseCompetence> competencesList;
     private List<CourseItem> courseItemsList;
     private ActivityCourseInformationBinding binding;
 
@@ -46,7 +47,7 @@ public class CourseInformation extends Fragment {
 
         getCourseById(1);
 
-        getCompetences();
+        getCourseCompetences(1);
         getCourseItems(1);
 
         return binding.getRoot();
@@ -69,16 +70,16 @@ public class CourseInformation extends Fragment {
             public void onFailure(Call<Courses> call, Throwable t) { }
         });
     }
-    private void getCompetences(){
-        AsimovApi asimovApi = RetrofitClient.createInstanceWithoutToken().create(AsimovApi.class);
-        asimovApi.getCompetences().enqueue(new Callback<List<Competence>>() {
+    private void getCourseCompetences(int courseid){
+        CourseService courseService = RetrofitClient.createInstanceWithoutToken().create(CourseService.class);
+        courseService.getCourseCompetences().enqueue(new Callback<List<CourseCompetence>>() {
             @Override
-            public void onResponse(Call<List<Competence>> call, Response<List<Competence>> response) {
+            public void onResponse(Call<List<CourseCompetence>> call, Response<List<CourseCompetence>> response) {
                 if (!response.isSuccessful()) {
                     Toast.makeText(getContext(), "Error loading Competences" + response.errorBody(), Toast.LENGTH_SHORT).show();
                     return;
                 }
-                List<Competence> competences = response.body();
+                List<CourseCompetence> competences = response.body();
                 System.out.println(competences);
 
                 CourseCompetencesAdapter adapter = new CourseCompetencesAdapter(competences);
@@ -86,7 +87,7 @@ public class CourseInformation extends Fragment {
             }
 
             @Override
-            public void onFailure(Call<List<Competence>> call, Throwable t) {
+            public void onFailure(Call<List<CourseCompetence>> call, Throwable t) {
                 Toast.makeText(getContext(), "Error connecting to the server", Toast.LENGTH_SHORT).show();
             }
         });

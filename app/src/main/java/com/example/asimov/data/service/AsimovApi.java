@@ -17,7 +17,4 @@ public interface AsimovApi {
 
     @GET("courses")
     Call<List<Courses>> getCourses();
-
-    @GET("/api/v1/competences")
-    Call<List<Competence>> getCompetences();
 }
