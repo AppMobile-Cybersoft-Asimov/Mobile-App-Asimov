@@ -18,8 +18,7 @@ import com.example.asimov.databinding.ActivityCompetencesBinding;
 
 import java.util.List;
 
-import Adapters.ListCompetencesAdapter;
-import com.example.asimov.data.service.AsimovApi;
+import com.example.asimov.adapters.ListCompetencesAdapter;
 import com.example.asimov.data.model.Competence;
 import retrofit2.Call;
 import retrofit2.Callback;

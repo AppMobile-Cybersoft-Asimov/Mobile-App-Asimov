@@ -1,4 +1,4 @@
-package Adapters;
+package com.example.asimov.adapters;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -9,23 +9,24 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.asimov.R;
-import com.example.asimov.data.model.Competence;
 
 import java.util.List;
 
-public class CourseCompetencesAdapter extends RecyclerView.Adapter<CourseCompetencesAdapter.viewHolder> {
+import com.example.asimov.data.model.Competence;
+
+public class ListCompetencesAdapter extends RecyclerView.Adapter<ListCompetencesAdapter.viewHolder> {
 
     private final List<Competence> data;
 
-    public CourseCompetencesAdapter(List<Competence> data){
+    public ListCompetencesAdapter(List<Competence> data){
         this.data=data;
     }
 
     @NonNull
     @Override
-    public CourseCompetencesAdapter.viewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+    public ListCompetencesAdapter.viewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
 
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.card_competence, null, false);
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.cardview_competence, null, false);
 
         view.setLayoutParams(new RecyclerView.LayoutParams(
                 RecyclerView.LayoutParams.MATCH_PARENT,
@@ -35,7 +36,7 @@ public class CourseCompetencesAdapter extends RecyclerView.Adapter<CourseCompete
     }
 
     @Override
-    public void onBindViewHolder(@NonNull CourseCompetencesAdapter.viewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull ListCompetencesAdapter.viewHolder holder, int position) {
         holder.asignData(data.get(position));
     }
 
@@ -48,12 +49,12 @@ public class CourseCompetencesAdapter extends RecyclerView.Adapter<CourseCompete
         TextView title, description;
         public viewHolder(@NonNull View itemView) {
             super(itemView);
-            title = itemView.findViewById(R.id.lblCompetenceTitle);
-            description = itemView.findViewById(R.id.txtCompetenceDescription);
+            title = itemView.findViewById(R.id.lblTitle);
+            description = itemView.findViewById(R.id.lblDescription);
         }
         public void asignData(Competence competence){
-            title.setText(competence.getTitle()+"");
-            description.setText(competence.getDescription()+"");
+            title.setText("Title: "+ competence.getTitle()+"");
+            description.setText("Description: "+ competence.getDescription()+"");
         }
     }
 }

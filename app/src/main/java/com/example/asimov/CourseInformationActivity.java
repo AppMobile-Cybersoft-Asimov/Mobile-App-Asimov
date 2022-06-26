@@ -12,26 +12,19 @@ import android.view.ViewGroup;
 import android.widget.Toast;
 
 import com.example.asimov.data.RetrofitClient;
-import com.example.asimov.data.model.Announcement;
 import com.example.asimov.data.model.CourseCompetence;
 import com.example.asimov.data.model.CourseItem;
 import com.example.asimov.data.model.Courses;
-import com.example.asimov.data.service.AnnouncementsService;
-import com.example.asimov.data.service.AsimovApi;
-import com.example.asimov.data.service.CompetencesService;
 import com.example.asimov.data.service.CourseService;
 import com.example.asimov.databinding.ActivityCourseInformationBinding;
 
-import java.util.ArrayList;
 import java.util.List;
 
-import Adapters.CourseCompetencesAdapter;
-import Adapters.CourseItemsAdapter;
+import com.example.asimov.adapters.CourseCompetencesAdapter;
+import com.example.asimov.adapters.CourseItemsAdapter;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
-import retrofit2.Retrofit;
-import retrofit2.converter.gson.GsonConverterFactory;
 
 public class CourseInformationActivity extends Fragment {
 
