@@ -11,6 +11,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Toast;
 
+import com.example.asimov.adapters.AnnouncementAdapter;
 import com.example.asimov.data.RetrofitClient;
 import com.example.asimov.data.model.Announcement;
 import com.example.asimov.data.service.AnnouncementsService;

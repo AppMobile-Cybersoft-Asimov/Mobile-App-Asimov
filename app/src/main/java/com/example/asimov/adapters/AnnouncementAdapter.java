@@ -1,4 +1,4 @@
-package com.example.asimov;
+package com.example.asimov.adapters;
 
 import android.view.LayoutInflater;
 import android.view.View;

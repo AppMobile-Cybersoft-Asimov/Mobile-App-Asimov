@@ -17,6 +17,7 @@ import com.example.asimov.data.model.RegisterRequest;
 import com.example.asimov.data.model.RegisterResponse;
 import com.example.asimov.data.service.TeacherService;
 import com.example.asimov.databinding.FragmentRegisterTeacherBinding;
+import com.example.asimov.manager.SessionManager;
 import com.example.asimov.ui.login.fragments.LoginFragment;
 
 import retrofit2.Call;
@@ -68,7 +69,7 @@ public class RegisterTeacherFragment extends Fragment {
                     .setPassword(binding.tboxRegPass.getText().toString())
                     .setAge(32)
                     .setPoint(0)
-                    .setDirectorId(1);
+                    .setDirectorId(SessionManager.getInstance().getUserId());
 
             teacherService.register(registerRequest).enqueue(new Callback<RegisterResponse>() {
                 @Override
