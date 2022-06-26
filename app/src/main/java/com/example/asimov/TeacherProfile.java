@@ -8,58 +8,60 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import com.example.asimov.adapters.CourseAdapter;
+import android.widget.Toast;
+import com.example.asimov.adapters.TeacherCourseAdapter;
 import com.example.asimov.data.RetrofitClient;
 import com.example.asimov.databinding.ActivityTeacherProfileBinding;
-import java.util.ArrayList;
 import java.util.List;
 import com.example.asimov.data.model.Courses;
 import com.example.asimov.data.model.Teachers;
 import com.example.asimov.data.service.AsimovApi;
+import com.example.asimov.utils.SpacingItemDecorator;
+
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
-import retrofit2.Retrofit;
-import retrofit2.converter.gson.GsonConverterFactory;
 
 public class TeacherProfile extends Fragment {
 
-    private List<Courses> courseData;
     private ActivityTeacherProfileBinding binding;
 
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        binding = ActivityTeacherProfileBinding.inflate(getLayoutInflater());
+        SpacingItemDecorator itemDecorator = new SpacingItemDecorator(16);
 
+        binding = ActivityTeacherProfileBinding.inflate(getLayoutInflater());
         binding.recyclerCourses.setLayoutManager(new LinearLayoutManager(getContext(),
                 LinearLayoutManager.VERTICAL, false));
+        binding.recyclerCourses.addItemDecoration(itemDecorator);
         binding.recyclerCourses.setNestedScrollingEnabled(false);
 
-        getTeacherById(3);
-        getCourses();
+
+        int id = 2;
+
+        getTeacherById(id);
+        getCoursesByTeacherId(id);
         return binding.getRoot();
     }
 
-    private void getCourses() {
-        Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl("https://asimov.azurewebsites.net/api/v1/")
-                .addConverterFactory(GsonConverterFactory.create())
-                .build();
-        AsimovApi asimovApi = retrofit.create(AsimovApi.class);
-        Call<List<Courses>> inter = asimovApi.getCourses();
+    private void getCoursesByTeacherId(int teacherId) {
+
+        AsimovApi asimovApi = RetrofitClient.createInstance().create(AsimovApi.class);
+        Call<List<Courses>> inter = asimovApi.getCourseByTeacherId(teacherId);
 
         inter.enqueue(new Callback<List<Courses>>() {
             @Override
             public void onResponse(Call<List<Courses>> call, Response<List<Courses>> response) {
-                List<Courses> list = response.body();
-                courseData = new ArrayList<Courses>();
-                for(Courses co:list){
-                    courseData.add(new Courses(co.getId(), co.getName(),
-                            co.getDescription(), co.getState()));
+                if (!response.isSuccessful()){
+                    Toast.makeText(getContext(), "Codigo de error: " + response.code(),
+                            Toast.LENGTH_SHORT).show();
                 }
-                CourseAdapter adapter = new CourseAdapter(courseData);
-                binding.recyclerCourses.setAdapter(adapter);
+
+                List<Courses> listCourses = response.body();
+                TeacherCourseAdapter teacherCourseAdapter = new TeacherCourseAdapter(listCourses);
+
+                binding.recyclerCourses.setAdapter(teacherCourseAdapter);
             }
 
             @Override
