@@ -3,6 +3,7 @@ package com.example.asimov;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.LinearLayoutManager;
 
 import android.os.Bundle;
 import android.util.Log;
@@ -38,10 +39,11 @@ public class CourseInformationActivity extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         binding = ActivityCourseInformationBinding.inflate(getLayoutInflater());
-
+        binding.rvCourseCompetences.setLayoutManager(new LinearLayoutManager(getContext(), LinearLayoutManager.VERTICAL, false));
+        binding.rvCourseItems.setLayoutManager(new LinearLayoutManager(getContext(), LinearLayoutManager.VERTICAL, false));
         getCourseById(courseId);
 
-        //getCourseCompetences(courseId);
+        getCourseCompetences(courseId);
         getCourseItems(courseId);
 
         return binding.getRoot();
@@ -65,7 +67,7 @@ public class CourseInformationActivity extends Fragment {
         });
     }
     private void getCourseCompetences(int courseId){
-        CourseService courseService = RetrofitClient.createInstanceWithoutToken().create(CourseService.class);
+        CourseService courseService = RetrofitClient.createInstance().create(CourseService.class);
         courseService.getCourseCompetences(courseId).enqueue(new Callback<List<CourseCompetence>>() {
             @Override
             public void onResponse(Call<List<CourseCompetence>> call, Response<List<CourseCompetence>> response) {
@@ -99,7 +101,7 @@ public class CourseInformationActivity extends Fragment {
                 List<CourseItem> courseItemsList = response.body();
 
                 CourseItemsAdapter adapter = new CourseItemsAdapter(courseItemsList);
-                binding.rvCourseCompetences.setAdapter(adapter);
+                binding.rvCourseItems.setAdapter(adapter);
             }
 
             @Override
