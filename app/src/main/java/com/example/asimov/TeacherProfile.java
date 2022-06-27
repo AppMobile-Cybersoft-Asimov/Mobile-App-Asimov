@@ -36,10 +36,7 @@ public class TeacherProfile extends Fragment {
                 LinearLayoutManager.VERTICAL, false));
         binding.recyclerCourses.addItemDecoration(itemDecorator);
         binding.recyclerCourses.setNestedScrollingEnabled(false);
-
-
         int id = 2;
-
         getTeacherById(id);
         getCoursesByTeacherId(id);
         return binding.getRoot();

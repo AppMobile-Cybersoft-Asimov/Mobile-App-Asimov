@@ -13,12 +13,12 @@ import android.widget.Toast;
 
 
 import com.example.asimov.data.RetrofitClient;
+import com.example.asimov.data.service.CompetencesService;
 import com.example.asimov.databinding.ActivityCompetencesBinding;
 
 import java.util.List;
 
-import Adapters.ListCompetencesAdapter;
-import com.example.asimov.data.service.AsimovApi;
+import com.example.asimov.adapters.ListCompetencesAdapter;
 import com.example.asimov.data.model.Competence;
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -48,8 +48,8 @@ public class CompetencesActivity extends Fragment {
 
     private void retrieveCompetences() {
 
-        AsimovApi asimovApi = RetrofitClient.createInstance().create(AsimovApi.class);
-        Call<List<Competence>> inter = asimovApi.getCompetences();
+        CompetencesService competencesService = RetrofitClient.createInstance().create(CompetencesService.class);
+        Call<List<Competence>> inter = competencesService.getCompetences();
 
         inter.enqueue(new Callback<List<Competence>>() {
             @Override

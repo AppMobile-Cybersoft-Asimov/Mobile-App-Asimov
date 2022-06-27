@@ -2,6 +2,7 @@ package com.example.asimov.data.service;
 
 import java.util.List;
 
+import com.example.asimov.data.model.CourseItem;
 import com.example.asimov.data.model.Courses;
 import com.example.asimov.data.model.Teachers;
 import com.example.asimov.data.model.Competence;
@@ -19,7 +20,4 @@ public interface AsimovApi {
 
     @GET("courses")
     Call<List<Courses>> getCourses();
-
-    @GET("/api/v1/competences")
-    Call<List<Competence>> getCompetences();
 }
