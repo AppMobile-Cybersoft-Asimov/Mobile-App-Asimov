@@ -29,7 +29,7 @@ public class TeacherProfile extends Fragment {
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        SpacingItemDecorator itemDecorator = new SpacingItemDecorator(16);
+        SpacingItemDecorator itemDecorator = new SpacingItemDecorator(50);
 
         binding = ActivityTeacherProfileBinding.inflate(getLayoutInflater());
         binding.recyclerCourses.setLayoutManager(new LinearLayoutManager(getContext(),
