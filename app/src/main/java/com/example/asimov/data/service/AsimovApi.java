@@ -15,6 +15,9 @@ public interface AsimovApi {
     @GET("api/v1/teachers/{id}")
     Call<Teachers> getTeacherById(@Path("id") int id);
 
+    @GET("api/v1/teachers/{teacherId}/courses")
+    Call<List<Courses>> getCourseByTeacherId(@Path("teacherId") int teacherId);
+
     @GET("courses")
     Call<List<Courses>> getCourses();
 }
