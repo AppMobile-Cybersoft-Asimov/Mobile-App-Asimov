@@ -32,16 +32,17 @@ public class CourseInformationActivity extends Fragment {
     private List<CourseCompetence> competencesList;
     private List<CourseItem> courseItemsList;
     private ActivityCourseInformationBinding binding;
+    private int courseId = 1;
 
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         binding = ActivityCourseInformationBinding.inflate(getLayoutInflater());
 
-        getCourseById(1);
+        getCourseById(courseId);
 
-        getCourseCompetences(1);
-        getCourseItems(1);
+        //getCourseCompetences(courseId);
+        getCourseItems(courseId);
 
         return binding.getRoot();
     }
@@ -63,9 +64,9 @@ public class CourseInformationActivity extends Fragment {
             public void onFailure(Call<Courses> call, Throwable t) { }
         });
     }
-    private void getCourseCompetences(int courseid){
+    private void getCourseCompetences(int courseId){
         CourseService courseService = RetrofitClient.createInstanceWithoutToken().create(CourseService.class);
-        courseService.getCourseCompetences().enqueue(new Callback<List<CourseCompetence>>() {
+        courseService.getCourseCompetences(courseId).enqueue(new Callback<List<CourseCompetence>>() {
             @Override
             public void onResponse(Call<List<CourseCompetence>> call, Response<List<CourseCompetence>> response) {
                 if (!response.isSuccessful()) {

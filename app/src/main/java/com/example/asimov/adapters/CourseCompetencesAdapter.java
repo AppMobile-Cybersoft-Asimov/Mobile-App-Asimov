@@ -10,14 +10,15 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.asimov.R;
 import com.example.asimov.data.model.Competence;
+import com.example.asimov.data.model.CourseCompetence;
 
 import java.util.List;
 
 public class CourseCompetencesAdapter extends RecyclerView.Adapter<CourseCompetencesAdapter.viewHolder> {
 
-    private final List<Competence> data;
+    private final List<CourseCompetence> data;
 
-    public CourseCompetencesAdapter(List<Competence> data){
+    public CourseCompetencesAdapter(List<CourseCompetence> data){
         this.data=data;
     }
 
@@ -51,9 +52,9 @@ public class CourseCompetencesAdapter extends RecyclerView.Adapter<CourseCompete
             title = itemView.findViewById(R.id.lblCompetenceTitle);
             description = itemView.findViewById(R.id.txtCompetenceDescription);
         }
-        public void asignData(Competence competence){
-            title.setText(competence.getTitle()+"");
-            description.setText(competence.getDescription()+"");
+        public void asignData(CourseCompetence courseCompetence){
+            title.setText(courseCompetence.getTitle()+"");
+            description.setText(courseCompetence.getDescription()+"");
         }
     }
 }
