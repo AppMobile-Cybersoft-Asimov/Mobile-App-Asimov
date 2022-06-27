@@ -71,6 +71,9 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 //getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new CourseInformationActivity()).commit();
                 getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new CompetencesActivity()).commit();
                 break;
+            case R.id.nav_courses:
+                getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new CoursesList()).commit();
+                break;
         }
         drawerLayout.closeDrawer(GravityCompat.START);
         return true;
