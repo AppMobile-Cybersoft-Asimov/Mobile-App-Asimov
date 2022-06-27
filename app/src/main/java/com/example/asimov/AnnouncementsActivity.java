@@ -37,8 +37,7 @@ public class AnnouncementsActivity extends Fragment {
             binding.layoutPublish.setVisibility(View.GONE);
         }
         binding.publishCard.btnPublish.setOnClickListener(v -> publishAnnouncement());
-        binding.recyclerData.setLayoutManager(new LinearLayoutManager(
-                getContext(), LinearLayoutManager.VERTICAL, false));
+        binding.recyclerData.setLayoutManager(new LinearLayoutManager(getContext(), LinearLayoutManager.VERTICAL, false));
         getAnnouncements();
         return binding.getRoot();
     }
@@ -72,7 +71,7 @@ public class AnnouncementsActivity extends Fragment {
         });
     }
 
-    private void getAnnouncements() {
+    public void getAnnouncements() {
         AnnouncementsService announcementsService = RetrofitClient.createInstanceWithoutToken().create(AnnouncementsService.class);
         announcementsService.getAnnouncements().enqueue(new Callback<List<Announcement>>() {
             @Override
@@ -85,7 +84,7 @@ public class AnnouncementsActivity extends Fragment {
                 System.out.println(announcements);
 
                 AnnouncementAdapter adapter = new AnnouncementAdapter(announcements,
-                        !getActivity().getIntent().getStringExtra("userType").equals("profesor"));
+                        !getActivity().getIntent().getStringExtra("userType").equals("profesor"), AnnouncementsActivity.this);
                 binding.recyclerData.setAdapter(adapter);
             }
 
