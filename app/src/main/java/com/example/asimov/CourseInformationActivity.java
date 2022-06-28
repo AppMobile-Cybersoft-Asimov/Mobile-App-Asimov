@@ -5,6 +5,7 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -33,7 +34,6 @@ public class CourseInformationActivity extends Fragment {
     private List<CourseCompetence> competencesList;
     private List<CourseItem> courseItemsList;
     private ActivityCourseInformationBinding binding;
-    private int courseId = 1;
 
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -41,8 +41,18 @@ public class CourseInformationActivity extends Fragment {
         binding = ActivityCourseInformationBinding.inflate(getLayoutInflater());
         binding.rvCourseCompetences.setLayoutManager(new LinearLayoutManager(getContext(), LinearLayoutManager.VERTICAL, false));
         binding.rvCourseItems.setLayoutManager(new LinearLayoutManager(getContext(), LinearLayoutManager.VERTICAL, false));
-        getCourseById(courseId);
 
+        int courseId = 1;
+
+        //Bundle extra = getActivity().getIntent().getBundleExtra("id");
+
+        /*
+        if (extra != null) {
+            courseId = Integer.parseInt(extra.getString("id"));
+        }
+        */
+
+        getCourseById(courseId);
         getCourseCompetences(courseId);
         getCourseItems(courseId);
 

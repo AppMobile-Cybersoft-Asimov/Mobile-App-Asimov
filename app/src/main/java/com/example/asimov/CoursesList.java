@@ -4,6 +4,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -14,7 +15,6 @@ import com.example.asimov.data.RetrofitClient;
 import com.example.asimov.data.model.Courses;
 import com.example.asimov.data.service.AsimovApi;
 import com.example.asimov.databinding.ActivityCoursesListBinding;
-import com.example.asimov.databinding.CardCourseBinding;
 import com.example.asimov.manager.SessionManager;
 import com.example.asimov.utils.SpacingItemDecorator;
 import java.util.List;
@@ -23,9 +23,9 @@ import retrofit2.Callback;
 import retrofit2.Response;
 
 public class CoursesList extends Fragment {
-
     private ActivityCoursesListBinding binding;
-    //private CardCourseBinding cardCourseBinding;
+    private List<Courses> listCourses;
+    private CourseAdapter.RecyclerViewClickListener listener;
 
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -37,11 +37,23 @@ public class CoursesList extends Fragment {
                 LinearLayoutManager.VERTICAL, false));
         binding.recyclerCoursesList.addItemDecoration(itemDecorator);
 
+        setOnClickListener();
+
         int teacherId = SessionManager.getInstance().getUserId();
         getCoursesByTeacherId(teacherId);
-        //cardCourseBinding.btnToCourse.setOnClickListener(v -> goToCourse());
 
         return binding.getRoot();
+    }
+
+    public void setOnClickListener() {
+        listener = new CourseAdapter.RecyclerViewClickListener() {
+            @Override
+            public void onClick(View v, int position) {
+                //Intent intent = new Intent(getContext(), CourseInformationActivity.class);
+                //intent.putExtra("id", listCourses.get(position).getId());
+                //startActivity(intent);
+            }
+        };
     }
 
     @Override
@@ -57,19 +69,14 @@ public class CoursesList extends Fragment {
                 if (!response.isSuccessful()) {
                     Toast.makeText(getContext(), "Codigo de error: " + response.code(), Toast.LENGTH_SHORT).show();
                 }
-
-                List<Courses> listCourses = response.body();
-                CourseAdapter courseAdapter = new CourseAdapter(listCourses);
+                listCourses = response.body();
+                CourseAdapter courseAdapter = new CourseAdapter(listCourses, listener);
                 binding.recyclerCoursesList.setAdapter(courseAdapter);
             }
 
             @Override
             public void onFailure(Call<List<Courses>> call, Throwable t) { }
         });
-
-    }
-
-    private void goToCourse(){
 
     }
 }

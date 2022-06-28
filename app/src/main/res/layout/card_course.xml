@@ -45,7 +45,7 @@
             android:maxLines="4"/>
 
         <com.google.android.material.button.MaterialButton
-            android:id="@+id/btnToCourse"
+            android:id="@+id/btnToCourseInfo"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
