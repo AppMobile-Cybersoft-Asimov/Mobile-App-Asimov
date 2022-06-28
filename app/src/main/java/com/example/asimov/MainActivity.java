@@ -36,9 +36,9 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             sideMenu.setCheckedItem(R.id.nav_dashboard);
         }
         if (userType.equals("profesor")) {
-            getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new DashboardTeacherActivity()).commit();
+            getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new DashboardTeacherActivity()).addToBackStack(null).commit();
         } else {
-            getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new DashboardDirectorActivity()).commit();
+            getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new DashboardDirectorActivity()).addToBackStack(null).commit();
         }
     }
 
@@ -56,20 +56,26 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
         switch (item.getItemId()) {
             case R.id.nav_dashboard:
-                getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new DashboardDirectorActivity()).commit();
+                getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new DashboardDirectorActivity()).addToBackStack(null).commit();
                 break;
             case R.id.nav_dashboardTeacher:
-                getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new DashboardTeacherActivity()).commit();
+                getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new DashboardTeacherActivity()).addToBackStack(null).commit();
                 break;
             case R.id.nav_announcements:
-                getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new AnnouncementsActivity()).commit();
+                getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new AnnouncementsActivity()).addToBackStack(null).commit();
                 break;
             case R.id.nav_teachers:
-                getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new TeacherProfile()).commit();
+                getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new TeacherProfile()).addToBackStack(null).commit();
                 break;
             case R.id.nav_competences:
                 //getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new CourseInformationActivity()).commit();
-                getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new CompetencesActivity()).commit();
+                getSupportFragmentManager().beginTransaction()
+                        .replace(R.id.fragment_container, new CompetencesActivity())
+                        .addToBackStack(null)
+                        .commit();
+                break;
+            case R.id.nav_courses:
+                getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new CoursesList()).addToBackStack(null).commit();
                 break;
         }
         drawerLayout.closeDrawer(GravityCompat.START);
