@@ -36,9 +36,7 @@ public class CoursesList extends Fragment {
         binding.recyclerCoursesList.setLayoutManager(new LinearLayoutManager(getContext(),
                 LinearLayoutManager.VERTICAL, false));
         binding.recyclerCoursesList.addItemDecoration(itemDecorator);
-
-        setOnClickListener();
-
+        //setOnClickListener();
         int teacherId = SessionManager.getInstance().getUserId();
         getCoursesByTeacherId(teacherId);
 
@@ -49,9 +47,9 @@ public class CoursesList extends Fragment {
         listener = new CourseAdapter.RecyclerViewClickListener() {
             @Override
             public void onClick(View v, int position) {
-                //Intent intent = new Intent(getContext(), CourseInformationActivity.class);
-                //intent.putExtra("id", listCourses.get(position).getId());
-                //startActivity(intent);
+                Intent intent = new Intent(getContext(), CourseInformationActivity.class);
+                intent.putExtra("id", listCourses.get(position).getId());
+                startActivity(intent);
             }
         };
     }
@@ -70,7 +68,7 @@ public class CoursesList extends Fragment {
                     Toast.makeText(getContext(), "Codigo de error: " + response.code(), Toast.LENGTH_SHORT).show();
                 }
                 listCourses = response.body();
-                CourseAdapter courseAdapter = new CourseAdapter(listCourses, listener);
+                CourseAdapter courseAdapter = new CourseAdapter(listCourses, listener, CoursesList.this);
                 binding.recyclerCoursesList.setAdapter(courseAdapter);
             }
 

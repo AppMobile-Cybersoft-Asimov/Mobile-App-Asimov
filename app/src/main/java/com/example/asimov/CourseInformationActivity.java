@@ -24,6 +24,7 @@ import java.util.List;
 
 import com.example.asimov.adapters.CourseCompetencesAdapter;
 import com.example.asimov.adapters.CourseItemsAdapter;
+
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -41,8 +42,8 @@ public class CourseInformationActivity extends Fragment {
         binding = ActivityCourseInformationBinding.inflate(getLayoutInflater());
         binding.rvCourseCompetences.setLayoutManager(new LinearLayoutManager(getContext(), LinearLayoutManager.VERTICAL, false));
         binding.rvCourseItems.setLayoutManager(new LinearLayoutManager(getContext(), LinearLayoutManager.VERTICAL, false));
-
-        int courseId = 1;
+        String stringId = getArguments().getString("id");
+        int courseId = Integer.parseInt(stringId);
 
         //Bundle extra = getActivity().getIntent().getBundleExtra("id");
 
@@ -58,7 +59,8 @@ public class CourseInformationActivity extends Fragment {
 
         return binding.getRoot();
     }
-    private void getCourseById(int courseId){
+
+    private void getCourseById(int courseId) {
         CourseService courseService = RetrofitClient.createInstanceWithoutToken().create(CourseService.class);
         Call<Courses> inter = courseService.getCourseById(courseId);
 
@@ -67,16 +69,19 @@ public class CourseInformationActivity extends Fragment {
             public void onResponse(Call<Courses> call, Response<Courses> response) {
 
                 binding.lblCourseName.setText("Codigo de error: ");
-                Log.d("", response.body()+"");
+                Log.d("", response.body() + "");
                 Courses course = response.body();
                 binding.lblCourseName.setText(course.getName());
                 binding.txtCourseDescription.setText(course.getDescription());
             }
+
             @Override
-            public void onFailure(Call<Courses> call, Throwable t) { }
+            public void onFailure(Call<Courses> call, Throwable t) {
+            }
         });
     }
-    private void getCourseCompetences(int courseId){
+
+    private void getCourseCompetences(int courseId) {
         CourseService courseService = RetrofitClient.createInstance().create(CourseService.class);
         courseService.getCourseCompetences(courseId).enqueue(new Callback<List<CourseCompetence>>() {
             @Override
@@ -99,7 +104,7 @@ public class CourseInformationActivity extends Fragment {
         });
     }
 
-    private void getCourseItems(int courseId){
+    private void getCourseItems(int courseId) {
         CourseService courseService = RetrofitClient.createInstance().create(CourseService.class);
         courseService.getCourseItems(courseId).enqueue(new Callback<List<CourseItem>>() {
             @Override
